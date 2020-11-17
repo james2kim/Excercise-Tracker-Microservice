@@ -13,8 +13,7 @@ const mongoose = require('mongoose');
 
 
 // mongoose.connect(process.env.DB_URI);
-const URI='mongodb+srv://pgcjameskim:xsncr471@cluster0-s8pey.mongodb.net/<dbname>?retryWrites=true&w=majority'
-process.env.URI=URI
+const URI=process.env.MONGODB_URL
 mongoose.connect(URI, { useNewUrlParser: true, useUnifiedTopology: true }); 
 mongoose.set('useFindAndModify', false)
 app.use(cors());
