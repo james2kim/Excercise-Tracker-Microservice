@@ -5,22 +5,12 @@ const bodyParser = require('body-parser');
 const cors = require('cors');
 const mongoose = require('mongoose');
 
-
-
-
-/** this project needs a db !! **/ 
-// mongoose.connect(process.env.DB_URI);
-
-
-// mongoose.connect(process.env.DB_URI);
 const URI=process.env.MONGODB_URL
 mongoose.connect(URI, { useNewUrlParser: true, useUnifiedTopology: true }); 
 mongoose.set('useFindAndModify', false)
 app.use(cors());
 
-/** this project needs to parse POST bodies **/
-// you should mount the body-parser here
-
+// Body parser 
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 
@@ -60,10 +50,6 @@ app.use((err, req, res, next) => {
   res.status(errCode).type('txt')
     .send(errMessage)
 })
-
-
-
-
 
 
 const portNum = process.env.PORT || 3000;
